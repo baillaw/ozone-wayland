@@ -45,12 +45,13 @@
           '<!@(<(pkg-config) --libs-only-l <(wayland_packages))',
         ],
       },
-      'dependencies': [
-        '../../base/base.gyp:base',
-      ],
-      'include_dirs': [
-        '../..',
-      ],
+       'dependencies': [
+         '../../base/base.gyp:base',
+         '<(DEPTH)/third_party/mesa/mesa.gyp:mesa_headers',
+       ],
+       'export_dependent_settings': [
+          '<(DEPTH)/third_party/mesa/mesa.gyp:mesa_headers',
+       ],
       'sources': [
         'display.cc',
         'display.h',
